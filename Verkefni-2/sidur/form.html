@@ -3,13 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="Viðburðir">
+    <!-- HTML Meta Tags -->
+    <title>Skráning á viðburði</title>
+    <meta name="description" content="Skráðu þig á viðburði hjá okkur!">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://tol107g-anb59.netlify.app/verkefni-2/sidur/form">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Skráning á viðburði">
     <meta property="og:description" content="Skráðu þig á viðburði hjá okkur!">
-    <meta property="og:image" content="myndir/sharing.jpg">
-    <meta name="twitter:title" content="Viðburðir">
+    <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/3af729bc-f3e4-4bd2-a503-decebf55b525.jpg?token=m18ws-pfN8g21HPrqbSweYrzmJch5_3YkpsfygyFg2A&height=795&width=1200&expires=33261556361">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="tol107g-anb59.netlify.app">
+    <meta property="twitter:url" content="https://tol107g-anb59.netlify.app/verkefni-2/sidur/form">
+    <meta name="twitter:title" content="Skráning á viðburði">
     <meta name="twitter:description" content="Skráðu þig á viðburði hjá okkur!">
-    <meta name="twitter:image" content="myndir/sharing.jpg">
-    <title>Form</title>
+    <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/3af729bc-f3e4-4bd2-a503-decebf55b525.jpg?token=m18ws-pfN8g21HPrqbSweYrzmJch5_3YkpsfygyFg2A&height=795&width=1200&expires=33261556361">
+
+    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
   </head>
   <body>
     <header>
@@ -29,17 +42,17 @@
       <h2>Form</h2>
       <form action="/submit" method="POST">
         <h3>Viðburður</h3>
-        
-        <label for="event">Hvaða viðburð viltu koma á?</label><br>
+
+        <label for="event">Hvaða viðburð viltu koma á?</label><br />
         <select id="event" name="event">
           <option value="viðburður1">Púslukvöld</option>
-          <option value="viðburður2">Ticket to Ride</option>
-        </select><br><br>
-        
-        <label for="date">Hvenær?</label><br>
-        <input type="date" id="date" name="date" required><br><br>
-        
-        <label for="time">Klukkan hvað?</label><br>
+          <option value="viðburður2">Ticket to Ride</option></select
+        ><br /><br />
+
+        <label for="date">Hvenær?</label><br />
+        <input type="date" id="date" name="date" required /><br /><br />
+
+        <label for="time">Klukkan hvað?</label><br />
         <select id="time" name="time">
           <option value="10:00-11:00">10:00-11:00</option>
           <option value="11:00-12:00">11:00-12:00</option>
@@ -54,10 +67,10 @@
           <option value="20:00-21:00">20:00-21:00</option>
           <option value="21:00-22:00">21:00-22:00</option>
           <option value="22:00-23:00">22:00-23:00</option>
-          <option value="23:00-00:00">23:00-00:00</option>
-        </select><br><br>
-      
-        <label for="guests">Hve mörg?</label><br>
+          <option value="23:00-00:00">23:00-00:00</option></select
+        ><br /><br />
+
+        <label for="guests">Hve mörg?</label><br />
         <select id="guests" name="guests">
           <option value="1">1</option>
           <option value="2">2</option>
@@ -68,74 +81,88 @@
           <option value="7">7</option>
           <option value="8">8</option>
           <option value="9">9</option>
-          <option value="10">10</option>
-        </select><br><br>
-        
-        <label for="remarks">Viltu taka eitthvað fram?</label><br>
-        <textarea id="remarks" name="remarks"></textarea><br><br>
-      
+          <option value="10">10</option></select
+        ><br /><br />
+
+        <label for="remarks">Viltu taka eitthvað fram?</label><br />
+        <textarea id="remarks" name="remarks"></textarea><br /><br />
+
         <h3>Panta mat</h3>
-        
-        <label for="food">Viltu einhvern mat?</label><br>
+
+        <label for="food">Viltu einhvern mat?</label><br />
         <select id="food" name="food">
           <option value="Pizzusneið og gos">Pizzusneið og gos</option>
           <option value="Kaffi og kaka">Kaffi og kaka</option>
-          <option value="Engan mat">Engan mat</option>
-        </select><br><br>
-      
-        <label for="allergy">Ofnæmi?</label><br>
-        <input type="checkbox" id="allergy" name="allergy" value="true"> Já, ég er með ofnæmi<br><br>
-      
-        <label for="other_info">Annað sem við eigum að vita?</label><br>
-        <textarea id="other_info" name="other_info"></textarea><br><br>
-      
+          <option value="Engan mat">Engan mat</option></select
+        ><br /><br />
+
+        <label for="allergy">Ofnæmi?</label><br />
+        <input type="checkbox" id="allergy" name="allergy" value="true" /> Já,
+        ég er með ofnæmi<br /><br />
+
+        <label for="other_info">Annað sem við eigum að vita?</label><br />
+        <textarea id="other_info" name="other_info"></textarea><br /><br />
+
         <h3>Þínar upplýsingar</h3>
-      
-        <label for="name">Nafn</label><br>
-        <input type="text" id="name" name="name" required><br><br>
-      
-        <label for="email">Netfang</label><br>
-        <input type="email" id="email" name="email" placeholder="dæmi@netfang.is" required><br><br>
-      
-        <label for="phone">Sími</label><br>
-        <input type="tel" id="phone" name="phone" placeholder="dæmi: 123-4567" required><br><br>
-      
+
+        <label for="name">Nafn</label><br />
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="email">Netfang</label><br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="dæmi@netfang.is"
+          required
+        /><br /><br />
+
+        <label for="phone">Sími</label><br />
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="dæmi: 123-4567"
+          required
+        /><br /><br />
+
         <h3>Samþykkja og panta</h3>
-        
-        <input type="checkbox" id="terms" name="terms" required>
-        <label for="terms">Ég samþykki skilmála Spilabúðarinnar</label><br><br>
-        
+
+        <input type="checkbox" id="terms" name="terms" required />
+        <label for="terms">Ég samþykki skilmála Spilabúðarinnar</label
+        ><br /><br />
+
         <button type="submit">Panta</button>
       </form>
       <a href="../index.html">Aftur á forsíðu</a>
     </main>
     <footer>
-      <hr>
+      <hr />
       <h2>Opnunartími</h2>
-      Mánudagar <br>
-      Lokað <br>
-      Þriðjudagar til fimmtudags <br>
-      14:00 til 22:00 <br>
-      Föstudaga <br>
-      14:00 til 00:00 <br>
-      Laugardaga <br>
-      12:00 til 00:00 <br>
-      Sunnudaga <br>
-      12:00 til 22:00 <br>
+      Mánudagar <br />
+      Lokað <br />
+      Þriðjudagar til fimmtudags <br />
+      14:00 til 22:00 <br />
+      Föstudaga <br />
+      14:00 til 00:00 <br />
+      Laugardaga <br />
+      12:00 til 00:00 <br />
+      Sunnudaga <br />
+      12:00 til 22:00 <br />
 
       <h2>Hér erum við</h2>
-      Spilabúðin ehf.<br>
-      Spilgata 1<br>
-      101 Reykjavík<br>
-      Sími 123-4567<br>
+      Spilabúðin ehf.<br />
+      Spilgata 1<br />
+      101 Reykjavík<br />
+      Sími 123-4567<br />
       spilabudin@example.org
 
       <h2>Samfélagsmiðlar</h2>
 
-      <a href="https://www.facebook.com/HaskoliIslands">Facebook</a><br>
-      <a href="https://www.youtube.com/user/HIvarp">YouTube</a><br>
+      <a href="https://www.facebook.com/HaskoliIslands">Facebook</a><br />
+      <a href="https://www.youtube.com/user/HIvarp">YouTube</a><br />
       <a href="https://www.instagram.com/haskoli_islands">Instagram</a>
-      <hr>
+      <hr />
     </footer>
   </body>
 </html>
