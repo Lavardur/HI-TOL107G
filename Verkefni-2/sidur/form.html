@@ -3,54 +3,139 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Viðburðir">
+    <meta property="og:description" content="Skráðu þig á viðburði hjá okkur!">
+    <meta property="og:image" content="myndir/sharing.jpg">
+    <meta name="twitter:title" content="Viðburðir">
+    <meta name="twitter:description" content="Skráðu þig á viðburði hjá okkur!">
+    <meta name="twitter:image" content="myndir/sharing.jpg">
     <title>Form</title>
   </head>
   <body>
+    <header>
+      <h1>Skráning á viðburði</h1>
+    </header>
+    <a href="#main">beint í efni</a>
     <nav>
       <ul>
-        <li><strong>Forsíða Spilabúðarinnar.</strong></li>
-        <li><a href="">Spilasíða.</a></li>
-        <li><a href="">Viðburðasíða.</a></li>
-        <li><a href="">Skráning á viðburð.</a></li>
+        <li><a href="../index.html">Forsíða Spilabúðarinnar.</a></li>
+        <li><a href="spil.html">Spilasíða.</a></li>
+        <li><a href="vidburdir.html">Viðburðasíða.</a></li>
+        <li><strong>Skráning á viðburð.</strong></li>
       </ul>
     </nav>
-    <main>
-      <h1>Skráning á viðburði</h1>
+    <main id="main">
       <p>Skráðu þig á viðburði hjá okkur!</p>
       <h2>Form</h2>
-      <form>
-        <fieldset>
-            <legend><h3>Viðburður</h3></legend>
-            <label>Hvaða viðburð viltu koma á?</label><br />
-            <input
-              type="radio"
-              name="form_vidburdur"
-              id="puslukvold"
-              value="PUSLUKVOLD"
-            />
-            <label for="puslukvold">Púslukvöld</label><br />
-            <input
-              type="radio"
-              name="form_vidburdur"
-              id="ticket-to-ride"
-              value="TICKET-TO-RIDE"
-            />
-            <label for="ticket-to-ride">Ticket to Ride</label><br />
-    
-            <label>Hvenær?</label><br>
-            <input type="date" name="form_dagsetning" id="dagsetning" /><br>
-
-            <label>Klukkan hvað?</label><br>
-            <input type="time" name="" id="">
-
-            <label>Hve mörg?</label>
-            <label>Viltu taka eitthvað fram?</label>
-        </fieldset>
-
-
-
+      <form action="/submit" method="POST">
+        <h3>Viðburður</h3>
+        
+        <label for="event">Hvaða viðburð viltu koma á?</label><br>
+        <select id="event" name="event">
+          <option value="viðburður1">Púslukvöld</option>
+          <option value="viðburður2">Ticket to Ride</option>
+        </select><br><br>
+        
+        <label for="date">Hvenær?</label><br>
+        <input type="date" id="date" name="date" required><br><br>
+        
+        <label for="time">Klukkan hvað?</label><br>
+        <select id="time" name="time">
+          <option value="10:00-11:00">10:00-11:00</option>
+          <option value="11:00-12:00">11:00-12:00</option>
+          <option value="12:00-13:00">12:00-13:00</option>
+          <option value="13:00-14:00">13:00-14:00</option>
+          <option value="14:00-15:00">14:00-15:00</option>
+          <option value="15:00-16:00">15:00-16:00</option>
+          <option value="16:00-17:00">16:00-17:00</option>
+          <option value="17:00-18:00">17:00-18:00</option>
+          <option value="18:00-19:00">18:00-19:00</option>
+          <option value="19:00-20:00">19:00-20:00</option>
+          <option value="20:00-21:00">20:00-21:00</option>
+          <option value="21:00-22:00">21:00-22:00</option>
+          <option value="22:00-23:00">22:00-23:00</option>
+          <option value="23:00-00:00">23:00-00:00</option>
+        </select><br><br>
+      
+        <label for="guests">Hve mörg?</label><br>
+        <select id="guests" name="guests">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select><br><br>
+        
+        <label for="remarks">Viltu taka eitthvað fram?</label><br>
+        <textarea id="remarks" name="remarks"></textarea><br><br>
+      
+        <h3>Panta mat</h3>
+        
+        <label for="food">Viltu einhvern mat?</label><br>
+        <select id="food" name="food">
+          <option value="Pizzusneið og gos">Pizzusneið og gos</option>
+          <option value="Kaffi og kaka">Kaffi og kaka</option>
+          <option value="Engan mat">Engan mat</option>
+        </select><br><br>
+      
+        <label for="allergy">Ofnæmi?</label><br>
+        <input type="checkbox" id="allergy" name="allergy" value="true"> Já, ég er með ofnæmi<br><br>
+      
+        <label for="other_info">Annað sem við eigum að vita?</label><br>
+        <textarea id="other_info" name="other_info"></textarea><br><br>
+      
+        <h3>Þínar upplýsingar</h3>
+      
+        <label for="name">Nafn</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+      
+        <label for="email">Netfang</label><br>
+        <input type="email" id="email" name="email" placeholder="dæmi@netfang.is" required><br><br>
+      
+        <label for="phone">Sími</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="dæmi: 123-4567" required><br><br>
+      
+        <h3>Samþykkja og panta</h3>
+        
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">Ég samþykki skilmála Spilabúðarinnar</label><br><br>
+        
+        <button type="submit">Panta</button>
       </form>
+      <a href="../index.html">Aftur á forsíðu</a>
     </main>
-    <footer></footer>
+    <footer>
+      <hr>
+      <h2>Opnunartími</h2>
+      Mánudagar <br>
+      Lokað <br>
+      Þriðjudagar til fimmtudags <br>
+      14:00 til 22:00 <br>
+      Föstudaga <br>
+      14:00 til 00:00 <br>
+      Laugardaga <br>
+      12:00 til 00:00 <br>
+      Sunnudaga <br>
+      12:00 til 22:00 <br>
+
+      <h2>Hér erum við</h2>
+      Spilabúðin ehf.<br>
+      Spilgata 1<br>
+      101 Reykjavík<br>
+      Sími 123-4567<br>
+      spilabudin@example.org
+
+      <h2>Samfélagsmiðlar</h2>
+
+      <a href="https://www.facebook.com/HaskoliIslands">Facebook</a><br>
+      <a href="https://www.youtube.com/user/HIvarp">YouTube</a><br>
+      <a href="https://www.instagram.com/haskoli_islands">Instagram</a>
+      <hr>
+    </footer>
   </body>
 </html>
