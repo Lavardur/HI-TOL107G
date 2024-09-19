@@ -131,7 +131,7 @@ a {
 /** Almennt takka útlit, getur virkað á bæði <a> og <button> **/
 
 /* TODO útfæra og pæla í kommenti að ofan... hvaða semantík meikar sens hér? */
-.button {
+.button, button {
   display: inline-block;
   border: var(--border-regular);
   padding: 0.5rem 1rem;
@@ -170,9 +170,6 @@ a {
 
   gap: var(--spacing);
 
-  width: 100%;
-  max-width: 900px;
-
   margin: 0 auto 2em auto;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -181,6 +178,19 @@ a {
 
 /* TODO hér væri gott að búa til auka wrapper fyrir allt efni (ekki header eða footer)
 og síðan wrapper fyrir nav og main til að stýra hvernig þau element taka pláss */
+
+.wrapper-content main {
+  width: 100%;
+  max-width: 900px;
+}
+
+.wrapper-content nav {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  justify-content: center;
+}
+
 
 /** Haus á síðum **/
 
@@ -198,6 +208,16 @@ header {
 /* TODO nota úr sýnilausn eða þinni lausn, ætti að einfaldast töluvert ef
 .wrapper er notað eins og stungið upp á að ofan */
 
+nav ul {
+  
+  list-style: none;
+  margin-left: var(--spacing);
+}
+
+nav ul li {
+  margin-bottom: 1rem;
+}
+
 /** Meginmál og efni forsíðu **/
 
 /* TODO nota úr sýnilausn eða þinni lausn, ætti að einfaldast */
@@ -210,15 +230,15 @@ main p,
 main section {
   margin-bottom: 1rem;
 }
-/*
-main img {
+
+.fmynd {
   float: right;
   margin-left: 1rem;
   margin-bottom: 1rem;
   max-width: 300px;
   border-radius: 10px;
 }
-*/
+
 /**
  * notum þetta til að fá bil á milli eininga _almennt_
  * en ekki að hver eining þurfi að huga að bili
@@ -227,6 +247,7 @@ main > .content {
   display: flex;
   flex-direction: column;
   gap: calc(var(--spacing) * 2);
+  
 }
 
 /*** Inngangsefni á forsíðu ***/
@@ -275,8 +296,13 @@ hugsanlega setja nýjan flex container utan um bæði þetta og .cards */
 
 }
 
+.card .title {
+  margin-top: var(--spacing);
+  margin-left: var(--spacing);
+}
+
 .card > .content {
-  /* TODO nota úr sýnilausn eða þinni lausn */
+  flex: 1;
 }
 
 /**
@@ -295,21 +321,28 @@ hugsanlega setja nýjan flex container utan um bæði þetta og .cards */
 
 .card > .content > .text {
   flex: 1;
+  margin-top: var(--spacing);
+  margin-left: var(--spacing);
+  margin-right: var(--spacing);
 }
 
 .card > .content > .actions {
   display: flex;
   justify-content: space-between;
   gap: var(--spacing);
-
   margin-top: var(--spacing);
+  margin-left: var(--spacing);
+  margin-right: var(--spacing);
 }
+
+/** Fótur **/
 
 footer {
   padding: 1rem;
   border-top: 4px solid #cc99bb;
   background-color: #eebbdd;
   text-align: center;
+  width: 100%;
 }
 
 footer > section {
@@ -416,20 +449,19 @@ fieldset legend {
 }
 
 fieldset div {
-  width: 100%;
-  max-width: 400px;
   margin-bottom: 1rem;
 }
 
 fieldset div label {
-  display: block;
+  margin-left: 1rem;
 }
 
 fieldset input,
 fieldset select,
 fieldset textarea {
   padding: 0.5rem;
-  width: 100%;
+  width: calc(100% - 2rem);
+  margin-left: var(--spacing);
   border: 1px solid #000000;
 
   background-color: #ffffff;
@@ -440,31 +472,3 @@ fieldset input[type='checkbox'] {
   margin-right: 0.5rem;
   width: auto;
 }
-
-form button {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  border-width: 1px;
-  background-color: #eebbdd;
-}
-
-/** Fótur **/
-
-/* TODO nota úr sýnilausn eða þinni lausn */
-
-/*** Opnunartími ***/
-
-/* TODO nota úr sýnilausn eða þinni lausn */
-
-/** Spilasíða, töflustílar **/
-
-/* TODO nota úr sýnilausn eða þinni lausn */
-
-/** Viðburðir **/
-
-/* TODO nota úr sýnilausn eða þinni lausn, ætti að einfaldast með því að endurnýta .cards og .card */
-
-/** Skráningarform **/
-
-/* TODO nota úr sýnilausn eða þinni lausn, ætti að einfaldast með því að endurnýta .cards og .card */
