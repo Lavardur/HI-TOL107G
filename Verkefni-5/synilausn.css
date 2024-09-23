@@ -35,10 +35,6 @@ html {
   /* Grunn bilið okkar er 1rem == 16px */
   --spacing: 1rem;
 
-  /* Bil á milli „stærri“ eininga (header, efnisbox, footer) */
-  --vertical-space: calc(var(--gutter) * 1);
-  --vertical-space-large: calc(var(--gutter) * 1.5);
-
   /* Hámarks og lágmarks breidd á efni */
   --max-width: 1200px;
   --min-width-image: 200px;
@@ -52,19 +48,10 @@ html {
   --border-regular: 1px solid #000; /* todo longhand */
   --border-with-background: 4px solid #cc99bb;
 
-  /* Grid stillingar */
-  --columns: 12;
-  --gutter: 30px;
-  --offset: 20px;
-
-  /* Breidd á efni með offset */
-  --width-offset: calc(100% - (2 * var(--offset)));
-
   /* Litir */
   /** Litir með nafni **/
   --color-yellow: #f3dd99;
   --color-white: #ffffff;
-  --color-black: #000000;
   --color-purple: #eebbdd;
   --color-purple-dark: #cc99bb;
 
@@ -78,11 +65,6 @@ html {
   --font-base-size: 1rem;
   --font-family-base: 'Open Sans', Arial, Helvetica, sans-serif;
   --font-family-heading: 'Matemasie-Regular', 'Comic Sans MS', cursive;
-
-  /* Transitions */
-  --transition-time-short: 300ms;
-  --transition-time-long: 600ms;
-  --transition-timing-function: ease-in-out;
 }
 
 /* Almennt */
@@ -161,10 +143,6 @@ a {
   text-decoration: none;
 }
 
-html {
-  background-color: var(--color-background-primary);
-}
-
 /**
  * Eftirfarandi setur upp grunn umbrot (layout) síðu með flexbox.
  * Við förum yfir flexbox í viku 4 en þangað til er hægt að nota þetta
@@ -172,16 +150,11 @@ html {
  * Athugið að til þess að þetta virki þar að setja <div class="wrapper"> utan um allt efni 
  * innan <body>.
  */
- .wrapper {
-  /* Notum grid hér til að setja upp bil á milli header, meginmáls og fóts */
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 100%;
-
-  /* grid items eru miðjuð */
-  justify-items: center;
-
-  gap: var(--vertical-space);
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing);
 
   width: 100%;
   min-height: 100vh;
@@ -270,12 +243,9 @@ main > .content {
 /** Cards **/
 
 .cards {
-  display: grid;
-  grid-template-rows: auto;
-  gap: var(--vertical-space);
-  justify-items: center;
-
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
 }
 
 .cards > .title {
@@ -284,19 +254,13 @@ main > .content {
 }
 
 .cards > .content {
-  display: grid;
-  grid-template-rows: auto;
-  gap: var(--vertical-space);
-  justify-items: center;
+  display: flex;
+  justify-content: center;
+  gap: calc(var(--spacing) * 2);
+  flex-wrap: wrap;
 
   width: 100%;
 }
-
-/* TODO skilgreinda brotpunkt fyrir .cards .content */
-@media (min-width: 1500px) {
-  /* TODO hvaða stílar ættu að vera hér? */
-}
-
 
 /** Card **/
 
@@ -306,11 +270,6 @@ main > .content {
 
   /* hér verðum við að reikna út breidd svo að flex-wrap virki */
   width: calc(50% - var(--spacing));
-}
-
-/* TODO skilgreinda brotpunkt fyrir .card */
-@media (min-width: 99999px) {
-  /* TODO hvaða stílar ættu að vera hér? */
 }
 
 .card > .image {
