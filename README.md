@@ -1,4 +1,4 @@
-# Vefforritun 1, 2024: Verkefni 2, HTML #2
+# Vefforritun 1, 2024
 
 ---
 
