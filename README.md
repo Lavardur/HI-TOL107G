@@ -2,6 +2,7 @@
 
 - [Kennsluvefur](https://github.com/vefforritun/vef1-2024)
 - [Verkefnageymsla](https://tol107g-anb59.netlify.app/)
+---
 - [Verkefni 1](https://tol107g-anb59.netlify.app/verkefni-1/)
 - [Verkefni 2](https://tol107g-anb59.netlify.app/verkefni-2/)
 - [Verkefni 3](https://tol107g-anb59.netlify.app/verkefni-3/)
