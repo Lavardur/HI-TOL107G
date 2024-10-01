@@ -1,0 +1,22 @@
+/** Almennt takka útlit, getur virkað á bæði <a> og <button> **/
+.button {
+  display: inline-block;
+  padding: calc(var(--spacing) * 0.5) var(--spacing);
+  border: var(--border-regular);
+  border-radius: var(--border-radius-regular);
+  border-width: var(--border-width);
+  color: var(--color-black);
+  background-color: var(--color-background-secondary);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color var(--transition-time-short)
+    var(--transition-timing-function),
+    color var(--transition-time-short) var(--transition-timing-function),
+    border-color var(--transition-time-short) var(--transition-timing-function);
+}
+
+.button:hover {
+  color: var(--color-background-secondary);
+  background-color: var(--color-black);
+  border-color: var(--color-background-secondary);
+}

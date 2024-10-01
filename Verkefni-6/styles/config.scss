@@ -22,7 +22,7 @@
   --border-radius-regular: 5px;
   --border-radius-image: 10px;
   --border-regular: 1px solid #000; /* todo longhand */
-  --border-with-background: 4px solid #cc99bb;
+  --border-with-background: 4px solid #c9b;
 
   /* Grid stillingar */
   --columns: 12;
@@ -33,12 +33,13 @@
   --width-offset: calc(100% - (2 * var(--offset)));
 
   /* Litir */
+
   /** Litir með nafni **/
   --color-yellow: #f3dd99;
-  --color-white: #ffffff;
-  --color-black: #000000;
-  --color-purple: #eebbdd;
-  --color-purple-dark: #cc99bb;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-purple: #ebd;
+  --color-purple-dark: #c9b;
 
   /** Litir með notkun **/
   --color-background-primary: var(--color-yellow);
@@ -48,11 +49,34 @@
 
   /* Letur stillingar */
   --font-base-size: 1rem;
-  --font-family-base: "Open Sans", Arial, Helvetica, sans-serif;
-  --font-family-heading: "Matemasie-Regular", "Comic Sans MS", cursive;
+  --font-family-base: 'Open Sans', arial, helvetica, sans-serif;
+  --font-family-heading: 'Matemasie-Regular', 'Comic Sans MS', cursive;
 
   /* Transitions */
   --transition-time-short: 300ms;
   --transition-time-long: 600ms;
   --transition-timing-function: ease-in-out;
+}
+
+/* Fade in animation */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Til að transition sé ekki frá hvítum */
+html {
+  background-color: var(--color-background-primary);
+}
+
+header,
+.wrapper {
+  animation: var(--transition-time-long) var(--transition-timing-function)
+    fade-in;
 }
