@@ -8,7 +8,7 @@
     "sass": "sass styles.scss styles.css",
     "sass-watch": "sass styles.scss styles.css --watch",
     "dev": "concurrently npm:sass-watch npm:browser-sync",
-    "lint": "stylelint styles.scss ./**/*.scss"
+    "lint": "stylelint styles.scss ./**/*.scss --fix"
   },
   "author": "",
   "license": "ISC",
