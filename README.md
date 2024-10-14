@@ -9,3 +9,4 @@
 - [Verkefni 4](https://tol107g-anb59.netlify.app/verkefni-4/)
 - [Verkefni 5](https://tol107g-anb59.netlify.app/verkefni-5/)
 - [Verkefni 6](https://tol107g-anb59.netlify.app/verkefni-6/)
+- [Verkefni 7](https://tol107g-anb59.netlify.app/verkefni-7/)
