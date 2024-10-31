@@ -52,6 +52,7 @@ main {
   margin: var(--spacing) auto;
   padding-inline: var(--spacing);
   max-width: var(--max-width);
+  background-color: aliceblue;
 }
 
 .weather {
@@ -65,6 +66,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: var(--spacing);
+  padding: var(--spacing);
 }
 
 .locations__list {
@@ -75,16 +77,47 @@ main {
   list-style-type: none;
 }
 
-.forecast {
-  border-spacing: 0;
+.forecast tbody tr:nth-child(2n + 1) {
+  background-color: var(--color-background-zebra);
 }
 
-.forecast th,
-.forecast td {
+.forecasts {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing);
+}
+
+.forecasts th,
+.forecasts td {
+  border: 1px solid #ddd;
   padding: calc(var(--spacing) / 2);
   text-align: left;
 }
 
-.forecast tbody tr:nth-child(2n + 1) {
+.forecasts th {
+  background-color: var(--color-light-gray);
+  font-weight: bold;
+}
+
+.forecasts tbody tr:nth-child(2n) {
   background-color: var(--color-background-zebra);
+}
+
+.forecasts tbody tr:hover {
+  background-color: #eaeaea;
+}
+
+.forecasts td {
+  vertical-align: top;
+}
+
+/* Optional: Adjust font sizes and alignments if needed */
+
+.forecasts th,
+.forecasts td {
+  font-size: 1rem;
+}
+
+.forecasts th {
+  text-align: left;
 }

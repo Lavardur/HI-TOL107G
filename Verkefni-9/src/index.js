@@ -68,46 +68,82 @@ function renderIntoResultsContent(element) {
  * @param {Array<import('./lib/weather.js').Forecast>} results
  */
 function renderResults(location, results) {
-  // Búa til niðurstöðuelement
+  // Create a container for the results
   const resultsContainer = document.createElement('div');
 
-  // Bæta við titli fyrir staðsetningu
+  // Add a heading for the location
   const heading = document.createElement('h2');
   heading.appendChild(document.createTextNode(`Veðurspá fyrir ${location.title}`));
   resultsContainer.appendChild(heading);
 
-  // Búa til lista af veðurspám
-  const forecastList = document.createElement('ul');
-  forecastList.classList.add('forecasts');
+  // Create the table element
+  const table = document.createElement('table');
+  table.classList.add('forecasts');
+
+  // Create the table header
+  const thead = document.createElement('thead');
+  const headerRow = document.createElement('tr');
+
+  const dateHeader = document.createElement('th');
+  dateHeader.appendChild(document.createTextNode('Tími'));
+  headerRow.appendChild(dateHeader);
+
+  const descriptionHeader = document.createElement('th');
+  descriptionHeader.appendChild(document.createTextNode('Lýsing'));
+  headerRow.appendChild(descriptionHeader);
+
+  const tempHeader = document.createElement('th');
+  tempHeader.appendChild(document.createTextNode('Hitastig'));
+  headerRow.appendChild(tempHeader);
+
+  const precipHeader = document.createElement('th');
+  precipHeader.appendChild(document.createTextNode('Úrkoma'));
+  headerRow.appendChild(precipHeader);
+
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  // Create the table body
+  const tbody = document.createElement('tbody');
 
   for (const result of results) {
-    const item = document.createElement('li');
-    item.classList.add('forecast');
+    const row = document.createElement('tr');
 
-    const date = document.createElement('div');
-    date.classList.add('forecast__date');
-    date.appendChild(document.createTextNode(result.time));
+    // Format the date for better readability
+    const date = new Date(result.time);
+    const options = {
+      weekday: 'short',
+      hour: '2-digit',
+      minute: '2-digit',
+    };
+    const formattedDate = date.toLocaleDateString('is-IS', options);
 
-    const description = document.createElement('div');
-    description.classList.add('forecast__description');
-    description.appendChild(document.createTextNode(result.description));
+    const dateCell = document.createElement('td');
+    dateCell.appendChild(document.createTextNode(formattedDate));
+    row.appendChild(dateCell);
 
-    const temp = document.createElement('div');
-    temp.classList.add('forecast__temp');
-    temp.appendChild(document.createTextNode(`${result.temperature}°C`));
+    const descriptionCell = document.createElement('td');
+    descriptionCell.appendChild(document.createTextNode(result.description));
+    row.appendChild(descriptionCell);
 
-    item.appendChild(date);
-    item.appendChild(description);
-    item.appendChild(temp);
+    const tempCell = document.createElement('td');
+    tempCell.appendChild(document.createTextNode(`${result.temperature}°C`));
+    row.appendChild(tempCell);
 
-    forecastList.appendChild(item);
+    const precipCell = document.createElement('td');
+    precipCell.appendChild(document.createTextNode(`${result.precipitation} mm`));
+    row.appendChild(precipCell);
+
+    tbody.appendChild(row);
   }
 
-  resultsContainer.appendChild(forecastList);
+  table.appendChild(tbody);
+  resultsContainer.appendChild(table);
 
-  // Birtum niðurstöður
+  // Display the results
   renderIntoResultsContent(resultsContainer);
 }
+
 
 /**
  * Birta villu í viðmóti.
