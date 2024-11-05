@@ -1,25 +1,15 @@
 <script setup>
-// import HelloWorld from './components/HelloWorld.vue'
 import WeatherComponent from './components/WeatherComponent.vue';
 </script>
 
 <template>
-  <div id="app">
+  <div id="app" class="d-flex justify-content-center align-items-center min-vh-100">
     <WeatherComponent />
   </div>
 </template>
 
-<!-- <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style>
+#app {
+  text-align: center;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style> -->
+</style>

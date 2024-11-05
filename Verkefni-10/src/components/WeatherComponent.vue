@@ -8,7 +8,7 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <ul class="list-group">
+        <ul class="list-group d-flex flex-row justify-content-center">
           <li class="list-group-item" @click="onSearchMyLocation">Nota núverandi staðsetningu</li>
           <li
             v-for="location in locations"
@@ -35,10 +35,14 @@
       <div class="col-12">
         <h2>Veðurspá fyrir {{ currentLocation.title }}</h2>
         <ul class="list-group">
-          <li v-for="result in results" :key="result.time" class="list-group-item">
-            <div>{{ result.time }}</div>
-            <div>{{ result.description }}</div>
-            <div>{{ result.temperature }}°C</div>
+          <li v-for="result in results" :key="result.time" class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <div>{{ result.time }}</div>
+              <div>{{ result.description }}</div>
+              <div>{{ result.temperature }}°C</div>
+              <div>Vindhraði: {{ result.windSpeed }}</div>
+            </div>
+            <img :src="result.icon" :alt="result.description" class="weather-icon" />
           </li>
         </ul>
       </div>
@@ -119,5 +123,16 @@ export default {
 <style scoped>
 .list-group-item {
   cursor: pointer;
+}
+
+.weather-icon {
+  width: 50px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .list-group-item {
+    flex: 1 1 100%;
+  }
 }
 </style>
