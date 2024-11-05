@@ -8,17 +8,24 @@
     </div>
     <div class="row">
       <div class="col-12">
-        <ul class="list-group d-flex flex-row justify-content-center">
-          <li class="list-group-item" @click="onSearchMyLocation">Nota núverandi staðsetningu</li>
-          <li
+        <div class="d-flex flex-row justify-content-center">
+          <button
+            class="btn m-2"
+            :class="selectedLocation === 'current' ? 'btn-primary' : 'btn-secondary'"
+            @click="onSearchMyLocation"
+          >
+            Nota núverandi staðsetningu
+          </button>
+          <button
             v-for="location in locations"
             :key="location.title"
-            class="list-group-item"
+            class="btn m-2"
+            :class="selectedLocation === location.title ? 'btn-primary' : 'btn-secondary'"
             @click="onSearch(location)"
           >
             {{ location.title }}
-          </li>
-        </ul>
+          </button>
+        </div>
       </div>
     </div>
     <div class="row mt-4" v-if="loading">
@@ -37,9 +44,9 @@
         <ul class="list-group">
           <li v-for="result in results" :key="result.time" class="list-group-item d-flex justify-content-between align-items-center">
             <div>
-              <div>{{ result.time }}</div>
-              <div>{{ result.description }}</div>
-              <div>{{ result.temperature }}°C</div>
+            <div>{{ result.time }}</div>
+            <div>{{ result.description }}</div>
+            <div>{{ result.temperature }}°C</div>
               <div>Vindhraði: {{ result.windSpeed }}</div>
             </div>
             <img :src="result.icon" :alt="result.description" class="weather-icon" />
@@ -51,7 +58,7 @@
 </template>
 
 <script>
-import { weatherSearch } from '../lib/weather.js';
+import { weatherSearch } from '../js/weather.js';
 
 export default {
   name: 'WeatherComponent',
@@ -68,6 +75,7 @@ export default {
       currentLocation: null,
       loading: false,
       error: null,
+      selectedLocation: null,
     };
   },
   methods: {
@@ -76,6 +84,7 @@ export default {
       this.error = null;
       this.results = [];
       this.currentLocation = location;
+      this.selectedLocation = location.title;
 
       try {
         const results = await weatherSearch(location.lat, location.lng);
@@ -91,6 +100,7 @@ export default {
         this.loading = true;
         this.error = null;
         this.results = [];
+        this.selectedLocation = 'current';
 
         navigator.geolocation.getCurrentPosition(
           async (position) => {
@@ -121,7 +131,7 @@ export default {
 </script>
 
 <style scoped>
-.list-group-item {
+.btn {
   cursor: pointer;
 }
 
