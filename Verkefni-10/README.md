@@ -8,12 +8,20 @@
 
 - CSS framework: Bootstrap
 
-# Skipanir
+- Stylelint / ESlint / Sass
+
+# Skipanir til að keyra síðu
+
 npm install
 npm run dev
+
+# Allar notaðar Skipanir
+npm install
+npm run dev
+npm run build
 npm run test
 npm run lint -s
-
+npm run fix
 
 
 
