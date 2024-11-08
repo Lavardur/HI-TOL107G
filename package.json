@@ -1,0 +1,7 @@
+{
+    "name": "your-project-name",
+    "version": "1.0.0",
+    "scripts": {
+      "build:verkefni-10": "npm --prefix ./Verkefni-10 run build"
+    }
+  }
