@@ -45,12 +45,7 @@ button {
   padding: 0.25rem 0.5rem;
 }
 /* h1 title of the website followed by 5 nav links side by side  */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--spacing);
-}
+
 
 
 #root {
