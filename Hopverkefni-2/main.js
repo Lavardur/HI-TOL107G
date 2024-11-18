@@ -1,6 +1,6 @@
 import { renderNavigation } from './lib/components/navigation.js';
 import { el } from './lib/elements.js';
-import { renderIndexPage } from './lib/pages/index-page.js';
+import { renderIndexPage, createSuggestionsElement } from './lib/pages/index-page.js';
 import './style.scss';
  
 async function fetchIndex() {
@@ -21,12 +21,18 @@ async function fetchSubIndex(type) {
   return json;
 }
 
+async function fetchSubData(type, url) {
+  const file = `public/data/${type}/${url}`;
+  const response = await fetch(file); 
+  const json = await response.json();
+  return json;
+}
 
 async function renderSubpage(root, indexJson, type) {
 
   
 
-  const headerElement = el('header', {class: 'd-flex flex-wrap justify-content-center py-3 mb-4 border-bottom'}, el('h1', {class: 'me-auto'}, indexJson.title));
+  const headerElement = el('header', {class: 'container d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom'}, el('h1', {class: 'me-auto'}, indexJson.title));
 
   headerElement.appendChild(renderNavigation(indexJson.navigation, type));
 
@@ -38,7 +44,13 @@ async function renderSubpage(root, indexJson, type) {
 
   const subIndexJson = await fetchSubIndex(type);
 
-  const mainElement = el('main', {class: 'flex-shrink-0'}, el('p', {}, subIndexJson.text));
+  const mainElement = el('main', {class: 'flex-shrink-0'}, el('p', {}, subIndexJson.title), el('p', {}, subIndexJson.text), el('p', {}, subIndexJson.category));
+  
+  const rowElement = el('div', { class: 'row' });
+
+  const htmlSuggestionsElement = el('div', {}, await createSuggestionsElement(type));
+  rowElement.appendChild(htmlSuggestionsElement);
+  mainElement.appendChild(rowElement);
 
   const footerElement = el('footer', {class: 'footer mt-auto py-3 border-top'},el('p', {class: 'text-center text-body-secondary'}, indexJson.footer) );
 
