@@ -11,7 +11,7 @@
       "text": "Lærðu um JavaScript með því að fara yfir námsefnið."
     },
     {
-      "type": "keywords",
+      "type": "keywords", 
       "url": "keywords.json",
       "slug": "keywords",
       "title": "Lykilhugtök",

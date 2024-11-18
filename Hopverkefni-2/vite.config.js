@@ -1,3 +1,5 @@
+import path from 'path';
+
 export const siteName = 'Hópverkefni 2';
 export const plugins = [];
 export default {
