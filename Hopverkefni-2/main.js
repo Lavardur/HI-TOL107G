@@ -1,5 +1,8 @@
 import { renderSubpage } from './lib/pages/sub-page.js';
 import { renderIndexPage } from './lib/pages/index-page.js';
+import { renderKeywordsPage } from './lib/pages/keywords-page.js';
+import { renderLecturesPage } from './lib/pages/lectures-page.js';
+import { renderQuestionsPage } from './lib/pages/questions-page.js';
 import { fetchIndex } from './lib/components/fetchData.js';
 import './style.scss';
  
@@ -14,9 +17,15 @@ async function render(root, querystring) {
 
 
   if (!type) {
-    renderIndexPage(root, indexJson);
+    await renderIndexPage(root, indexJson);
+  } else if (content === 'keywords') {
+    await renderKeywordsPage(root, indexJson, type, content);
+  } else if (content === 'lectures') {
+    await renderLecturesPage(root, indexJson, type, content);
+  } else if (content === 'questions') {
+    await renderQuestionsPage(root, indexJson, type, content);
   } else {
-    renderSubpage(root, indexJson, type);
+    await renderSubpage(root, indexJson, type);
   }
 }
 
