@@ -2,19 +2,19 @@ import { el } from "../elements.js";
 import { fetchData } from "./fetchData.js";
 
 
-export async function createSuggestionsElement(title, type) {
+export async function createSuggestionsElement(type) {
   const data = await fetchData(type);
   const suggestionsElement = el(
     "div",
     { class: "my-3 p-3 bg-body rounded shadow-sm" },
-    el("h6", { class: "border-bottom pb-2 mb-0" }, title),
-    ...data.content.map((item) => createSuggestionItem(item.title, item.text))
+    el("h6", { class: "border-bottom pb-2 mb-0" }, data.title),
+    ...data.content.map((item) => createSuggestionItem(data.category, item.type ,item.title, item.text))
   );
 
   return suggestionsElement;
 }
 
-function createSuggestionItem(name, keyword) {
+function createSuggestionItem(content, type, title, text) {
   return el(
     "div",
     { class: "d-flex text-body-secondary pt-3" },
@@ -24,12 +24,12 @@ function createSuggestionItem(name, keyword) {
       el(
         "div",
         { class: "d-flex justify-content-between" },
-        el("strong", { class: "text-gray-dark" }, name)
+        el("strong", { class: "text-gray-dark" }, title)
       ),
       el(
         "span",
         { class: "d-block" },
-        el("a", { href: `#${keyword}` }, keyword)
+        el("a", { href: `/?type=${type}&content=${content}` }, text)
       )
     )
   );
