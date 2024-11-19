@@ -8,13 +8,13 @@ export async function createSuggestionsElement(type) {
     "div",
     { class: "my-3 p-3 bg-body rounded shadow-sm" },
     el("h6", { class: "border-bottom pb-2 mb-0" }, data.title),
-    ...data.content.map((item) => createSuggestionItem(data.category, item.type ,item.title, item.text))
+    ...data.content.map((item) => createSuggestionItem(type, item.type ,item.title, item.text))
   );
 
   return suggestionsElement;
 }
 
-function createSuggestionItem(content, type, title, text) {
+function createSuggestionItem(type, content, title, text) {
   return el(
     "div",
     { class: "d-flex text-body-secondary pt-3" },

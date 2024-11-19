@@ -14,8 +14,8 @@ export async function fetchIndex() {
   return json;
 }
 
-export async function fetchSubIndex(type) {
-  const file = `public/data/${type}/index.json`;
+export async function fetchSubData(type, content) {
+  const file = `public/data/${type}/${content}.json`;
 
   const response = await fetch(file);
   const json = await response.json();

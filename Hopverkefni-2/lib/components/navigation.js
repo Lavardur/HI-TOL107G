@@ -6,7 +6,7 @@ export function renderNavigation(navigation, activeSlug = "") {
   navigation.forEach((item) => {
     const { title, slug } = item;
     const href = `/?type=${slug}`;
-    const navLinkClass = slug === activeSlug ? "nav-link active" : "nav-link"; // Add 'active' class if slug matches activeSlug
+    const navLinkClass = slug === activeSlug ? "nav-link active" : "nav-link";
     const navItemElement = el(
       "li",
       { class: "nav-item" },
