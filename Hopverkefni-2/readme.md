@@ -2,10 +2,10 @@
 
 ## Skipanir
 
-npm install
-npm run dev
-npm run lint
-npm run fix
+- npm install
+- npm run dev
+- npm run lint
+- npm run fix
 
 ## Útfærslur
 
