@@ -1,5 +1,12 @@
 # Vefforritun 1, 2024, hópverkefni 2
 
+## Skipanir
+
+npm install
+npm run dev
+npm run lint
+npm run fix
+
 ## Útfærslur
 
 #### Birting á námsefni, 
