@@ -13,3 +13,4 @@
 - [Verkefni 8](https://tol107g-anb59.netlify.app/verkefni-8/)
 - [Verkefni 9](https://tol107g-anb59.netlify.app/verkefni-9/)
 - [Verkefni 10](https://dainty-chimera-166f63.netlify.app)
+- [Hópverkefni 2](https://dainty-chimera-166f63.netlify.app)
