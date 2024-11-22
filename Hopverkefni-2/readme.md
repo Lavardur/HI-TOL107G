@@ -1,5 +1,5 @@
 # Vefforritun 1, 2024, hópverkefni 2
-
+anb59@hi.is Hópur 21
 Öll pull requests í repoinu eru fyrir Hópverkefni 2, bootstrap var mikið notað fyrir útlit.
 
 ## Skipanir
